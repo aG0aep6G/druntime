@@ -1730,6 +1730,8 @@ extern (Windows) nothrow @nogc {
     BOOL CreateProcessW(LPCWSTR, LPWSTR, LPSECURITY_ATTRIBUTES, LPSECURITY_ATTRIBUTES, BOOL, DWORD, PVOID, LPCWSTR, LPSTARTUPINFOW, LPPROCESS_INFORMATION);
     HANDLE CreateSemaphoreA(LPSECURITY_ATTRIBUTES, LONG, LONG, LPCSTR) @trusted;
     HANDLE CreateSemaphoreW(LPSECURITY_ATTRIBUTES, LONG, LONG, LPCWSTR) @trusted;
+    BOOLEAN CreateSymbolicLinkA(LPSTR, LPSTR, DWORD);
+    BOOLEAN CreateSymbolicLinkW(LPWSTR, LPWSTR, DWORD);
     HANDLE CreateThread(LPSECURITY_ATTRIBUTES, SIZE_T, LPTHREAD_START_ROUTINE, PVOID, DWORD, PDWORD);
     BOOL DebugActiveProcess(DWORD);
     void DebugBreak();
@@ -2499,6 +2501,7 @@ version (Unicode) {
     alias CreateMutexW CreateMutex;
     alias CreateProcessW CreateProcess;
     alias CreateSemaphoreW CreateSemaphore;
+    alias CreateSymbolicLinkW CreateSymbolicLink;
     alias DeleteFileW DeleteFile;
     alias EndUpdateResourceW EndUpdateResource;
     alias EnumResourceLanguagesW EnumResourceLanguages;
@@ -2674,6 +2677,7 @@ version (Unicode) {
     alias CreateMutexA CreateMutex;
     alias CreateProcessA CreateProcess;
     alias CreateSemaphoreA CreateSemaphore;
+    alias SymbolicLinkA CreateSymbolicLink;
     alias DeleteFileA DeleteFile;
     alias EndUpdateResourceA EndUpdateResource;
     alias EnumResourceLanguagesA EnumResourceLanguages;
